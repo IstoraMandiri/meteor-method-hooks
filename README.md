@@ -12,7 +12,6 @@ Potental uses include:
 
 * Security (securing previously defined methods, or package defined methods)
 * Transparent Logging
-* Making your wildest dreams come true
 
 Here's an example for security, in `/server/test.coffee`
 
