@@ -10,8 +10,8 @@ This server-only package extends Meteor with two methods: `beforeMethods` and `a
 
 Potental uses include:
 
-* Security
-* Logging
+* Security (securing previously defined methods, or package defined methods)
+* Transparent Logging
 * Making your wildest dreams come true
 
 Here's an example for security, in `/server/test.coffee`
