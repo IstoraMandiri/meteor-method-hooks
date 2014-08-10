@@ -20,7 +20,9 @@ Meteor.beforeMethods 'test', ->
   Meteor.users.findOne(@userId)?.admin
 ```
 
-The above will prevent the `test` method from being executed unless the client is logged in as and has their `admin` field set to true. Any `beforeMethods` that returns `false` will halt the method and any other hooks from executing.
+The above will prevent the `test` method from being executed unless the client is logged in as and has their `admin` field set to `true`. 
+
+Any `beforeMethods` that return `false` will stop the relevent method and any other hooks from executing.
 
 You can pass an array of method names, and the hooks will recieve the same parameters as the original method. For example:
 
