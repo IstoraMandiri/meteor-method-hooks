@@ -1,8 +1,14 @@
 # Meteor Method Hooks
 
+```bash
+$ mrt add method-hooks
+```
+
 ### Provides before/after hooks for Meteor methods
 
-This server-only package extends Meteor with two methods: `beforeMethods` and `afterMethods`. Potental uses include:
+This server-only package extends Meteor with two methods: `beforeMethods` and `afterMethods`.
+
+Potental uses include:
 
 * Security
 * Logging
@@ -10,7 +16,7 @@ This server-only package extends Meteor with two methods: `beforeMethods` and `a
 
 Here's an example for security, in `/server/test.coffee`
 
-```
+```coffeescript
 Meteor.beforeMethods 'test', ->
   Meteor.users.findOne(@userId)?.admin
 ```
@@ -19,7 +25,7 @@ The above will prevent the `test` method from being executed unless the client i
 
 You can pass an array of method names, and the hooks will recieve the same parameters as the original method. For example:
 
-```
+```coffeescript
 if Meteor.isServer
   Meteor.methods
     'test1' : (str) -> console.log 'Hi', str
