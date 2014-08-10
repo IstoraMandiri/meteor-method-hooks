@@ -1,0 +1,9 @@
+{
+  "name": "method-hooks",
+  "description": "Provides before/after hooks for Meteor methods",
+  "homepage": "https://github.com/hitchcott/meteor-method-hooks",
+  "author": "Chris Hitchcott (hitchcott@gmail.com)",
+  "version": "0.0.1",
+  "git": "https://github.com/hitchcott/meteor-method-hooks",
+  "packages": {}
+}
