@@ -1,5 +1,13 @@
 # Meteor Method Hooks
 
+For Meteor >= 0.9
+
+```bash
+$ meteor add hitchcott:method-hooks
+```
+
+For Meteor < 0.9
+
 ```bash
 $ mrt add method-hooks
 ```
@@ -61,6 +69,7 @@ hook3
 
 * Testing
 * `beforeAllMethods` & `afterAllMethods` ?
+* Hook up methods instantly (if they exist) rather than waiting for startup
 
 ## Credits
 
