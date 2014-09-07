@@ -1,27 +1,18 @@
 # Meteor Method Hooks
+### Before/after hooks for Meteor methods
 
-For Meteor >= 0.9
+| Meteor >= 0.9  | Meteor < 0.9  |
+|---|---|
+|  `meteor add hitchcott:method-hooks`  |  `mrt add method-hooks` |
 
-```bash
-$ meteor add hitchcott:method-hooks
-```
 
-For Meteor < 0.9
+This server-only package extends Meteor with two methods:
+* `Meteor.beforeMethods` 
+* `Meteor.afterMethods`
 
-```bash
-$ mrt add method-hooks
-```
+The `beforeMethods` method can be used for securing `Meteor.methods` based on the result of a definable function.
 
-### Provides before/after hooks for Meteor methods
-
-This server-only package extends Meteor with two methods: `beforeMethods` and `afterMethods`.
-
-Potental uses include:
-
-* Security (securing previously defined methods, or package defined methods)
-* Transparent Logging
-
-Here's an example for security, in `/server/test.coffee`
+Here's an example for security, in `/server/methods.coffee`
 
 ```coffeescript
 Meteor.beforeMethods 'test', ->
@@ -31,6 +22,14 @@ Meteor.beforeMethods 'test', ->
 The above will prevent the `test` method from being executed unless the client is logged in as and has their `admin` field set to `true`. 
 
 Any `beforeMethods` that return `false` will stop the relevent method and any other hooks from executing.
+
+Uses include:
+
+* Security
+* Logging
+* [insert imaginative idea]
+
+## Example Usage
 
 You can pass an array of method names, and the hooks will recieve the same parameters as the original method. For example:
 
@@ -69,7 +68,7 @@ hook3
 
 * Testing
 * `beforeAllMethods` & `afterAllMethods` ?
-* Hook up methods instantly (if they exist) rather than waiting for startup
+* Hook up methods instantly (if they exist) rather than waiting for startup, and defer any unmatched hooks until *after* `Meteor.startup`.
 
 ## Credits
 
