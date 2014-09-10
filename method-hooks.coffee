@@ -18,9 +18,10 @@ Meteor.afterMethods = (methodName, fn) ->
   registerMethodHook methodName, 'after', fn
 
 # modified from stackoverflow.com/a/5259530/2682159
-wrap = (fn, beforeFn) ->
+wrap = (fn, beforeFn, methodName) ->
   ->
     args = Array::slice.call(arguments)
+    this._methodName = methodName
     beforeResult = beforeFn.apply this, args
     if beforeResult is false
       # stop execution queue if the result is false
@@ -36,9 +37,9 @@ Meteor.startup ->
 
     # Wrap in the relevent positions, multiple
     for beforeHook in hooks.before
-      wrappedMethod = wrap wrappedMethod, beforeHook
+      wrappedMethod = wrap wrappedMethod, beforeHook, method
     for afterHook in hooks.after
-      wrappedMethod = wrap afterHook, wrappedMethod
+      wrappedMethod = wrap afterHook, wrappedMethod, method
 
     # Overrite raw method with wrapped method
     Meteor.server.method_handlers[method] = wrappedMethod

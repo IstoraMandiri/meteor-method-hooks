@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'Provides before/after hooks for Meteor methods',
-  version: '1.0.0',
+  version: '1.1.0',
   name: 'hitchcott:method-hooks',
   git: 'https://github.com/hitchcott/meteor-method-hooks'
 });
