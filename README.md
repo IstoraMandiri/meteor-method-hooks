@@ -1,6 +1,8 @@
 # Meteor Method Hooks
 ### Before/after hooks for Meteor methods
 
+This package is old and hasn't been maintained in a while. Try this one, which has tests and is more recent: https://github.com/Workpop/meteor-method-hooks
+
 | Meteor >= 0.9  | Meteor < 0.9  |
 |---|---|
 |  `meteor add hitchcott:method-hooks`  |  `mrt add method-hooks` |
